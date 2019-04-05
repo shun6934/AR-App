@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TwitterApp.xcodeproj">
+      location = "self:/Users/shunichi/Work/iOS/Swift/My Apps/TwitterApp/TwitterListApp.xcodeproj">
    </FileRef>
 </Workspace>

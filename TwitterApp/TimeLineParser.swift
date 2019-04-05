@@ -14,7 +14,7 @@ struct TimelineParser {
         
         let json = serializedData as! [Any]
         
-        let timeline: [Tweet] = json.flatMap {
+        let timeline: [Tweet] = json.compactMap {
             Tweet(json: $0)
         }
         

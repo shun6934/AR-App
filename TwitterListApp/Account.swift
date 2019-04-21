@@ -8,6 +8,7 @@
 
 import Accounts
 
+// twitterアカウント
 struct Account {
     
     static var twitterAccount: ACAccount?

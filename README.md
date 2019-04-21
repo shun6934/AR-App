@@ -2,6 +2,7 @@
 
   * [What](#what)
   * [Purpose](#purpose)
+  * [Function](#function)
   * [Environment](#environment)
   * [Set up(noGit)](#set-upnogit)
   * [Reference](#reference)
@@ -12,6 +13,9 @@ TwitterのAPIを使用し、ログインしたアカウントのタイムライ�
 ## Purpose
 1. TwitterのAPIを例に、「API」とは何なのかや「GET」・「POST」の概念、APIを持ってくる方法などを学び、能力として身に付ける。
 2. アカウント管理やログイン、タイムライン取得などを構造体を使って仕組みを理解する。
+
+## Function
+- ログインしたアカウントのタイムラインを表示。
 
 ## Environment
 - Xcode 9.1

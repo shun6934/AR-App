@@ -1,11 +1,11 @@
 # TwitterListApp
 
-  * [What](#what)
-  * [Purpose](#purpose)
-  * [Function](#function)
-  * [Environment](#environment)
-  * [Set up(noGit)](#set-upnogit)
-  * [Reference](#reference)
+* [What](#what)
+* [Purpose](#purpose)
+* [Function](#function)
+* [Environment](#environment)
+* [Set up(noGit)](#set-upnogit)
+* [Reference](#reference)
 
 ## What
 TwitterのAPIを使用し、ログインしたアカウントのタイムラインを表示し、閲覧することができるiOSアプリ

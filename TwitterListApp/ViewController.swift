@@ -14,18 +14,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    // TimeLineのTweets
     var tweets: [Tweet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // ログイン判定
         LoginCommunicator().login() { isSuccess in
             switch isSuccess {
             case false:
                 print("ログイン失敗")
             case true:
                 print("ログイン成功")
-
+                
+                // TimeLine取得
                 TwitterCommunicator().getTimeline() { [weak self] data, error in
                     if let error = error {
                         print(error)
@@ -62,7 +66,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! CustomTableViewCell
         cell.fill(tweet: tweets[indexPath.row])
         return cell
     }
@@ -72,31 +76,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
-}
-
-class TableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var iconImage: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var screenName: UILabel!
-    @IBOutlet weak var tweetContent: UILabel!
-    
-    func fill(tweet: Tweet) {
-        let downloadTask = URLSession.shared.dataTask(with: URL(string: tweet.user.profileImageURL)!) { [weak self] data, response, error in
-            if let error = error {
-                print(error)
-                return
-            }
- 
-            DispatchQueue.main.async {
-                self?.iconImage.image = UIImage(data: data!)
-            }
-        }
-        downloadTask.resume()
-        
-        userName.text = tweet.user.name
-        screenName.text = "@" + tweet.user.screenName
-        tweetContent.text = tweet.text
-    }
-    
 }
